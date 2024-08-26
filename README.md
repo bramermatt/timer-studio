@@ -18,5 +18,3 @@ started 2024.08.26
  -   completed pomos
  -   pie/bar chart porgress
  -   long-term stats
-
--
