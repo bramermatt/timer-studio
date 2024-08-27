@@ -132,6 +132,8 @@ footer {
         background-color: #e74c3c;
         color: white;
     }
+
+
     
     button:hover {
         opacity: 80%;
@@ -189,6 +191,9 @@ footer {
    
 }
 
+.delete-btn button {
+    border: thin solid !important;
+}
 
 .custom-time-input {
     padding: 10px;
@@ -239,8 +244,8 @@ footer {
 /* Media query for light color scheme */
 @media screen and (prefers-color-scheme: light) {
     
-    nav {
-        .social a {
+    footer {
+        .footer-links a {
             color: black;
         }
     }
@@ -249,8 +254,8 @@ footer {
 
 @media screen and (prefers-color-scheme: dark) {
     
-    nav {
-        .social a {
+    footer {
+        .footer-links a {
             color: white;
         }
     }
