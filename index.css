@@ -1,0 +1,257 @@
+/* Apply box-sizing to all elements */
+* {
+    box-sizing: border-box;
+}
+
+/* Apply styles to the HTML and body */
+html {
+    margin: auto;
+    scroll-behavior: smooth;
+
+    body {
+        padding: 0;
+        margin: 0 auto;
+        cursor: default;
+        font-family: system-ui;
+    }
+}
+
+
+
+/* Style for navigation bar */
+nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 10px 15px;
+
+    .social {
+        display: flex;
+        gap:  2vw;
+    }
+
+    .brand {
+        display: flex;
+        align-items: center;
+        gap: 1vw;
+    }
+    
+    .brand h1 {
+        margin: 0;
+    }
+    
+     i {
+        font-size: 3vh;
+    }
+}
+
+
+
+/* Style for footer */
+footer {
+    padding: 20px 0;
+    text-align: center;
+    margin-top: 40vh;
+
+    i {
+        font-size: 4vh;
+    }
+    
+    .footer-content {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 10px;
+    }
+    
+    .footer-links a {
+        margin: 0 15px;
+        color: #ecf0f1;
+        text-decoration: none;
+        font-weight: bold;
+    }
+    
+    .footer-links a:hover {
+        color: #2ecc71;
+    }
+}
+
+
+
+/* Timer container styling */
+#timers-container, .timer {
+    text-align: center;
+    margin: 0 auto;
+    /* max-width: 300px; */
+
+    .timer-display {
+        font-size: 8em;
+        /* margin-bottom: 20px; */
+    }
+
+    .timer-controls {
+        display: flex;
+        align-items: center;
+        flex-wrap: wrap;
+        justify-content: center;
+
+        margin-top: 8vh;
+        /* gap: 2vw; */
+        
+    }
+    
+    .timer-controls button, #add-timer-btn {
+        padding: 10px 20px;
+        margin: 5px;
+        font-size: 5vh;
+        cursor: pointer;
+        border: none;
+        border-radius: 12px;
+        box-shadow: 2px 2px 2px grey;
+    }
+
+    #add-timer-btn {
+        background-color: #2e8dcc;
+        color: white;
+        font-size: 3vh;
+        padding: 10px;
+    }
+    
+    .start-btn {
+        background-color: #2ecc71;
+        color: white;
+    }
+    
+    .pause-btn {
+        background-color: #e67e22;
+        color: white;
+    }
+    
+    .reset-btn {
+        background-color: #e74c3c;
+        color: white;
+    }
+    
+    button:hover {
+        opacity: 80%;
+        box-shadow: 0px 0px 0px;
+    }
+    
+    .time-select {
+        padding: 10px;
+        font-size: 18px;
+        margin-bottom: 20px;
+        border: 2px solid #2ecc71;
+        border-radius: 5px;
+        background-color: #ecf0f1;
+        color: #2c3e50;
+        cursor: pointer;
+        width: 100%;
+        margin-top: 3vh;
+        max-width: max-content;
+    }
+    
+    .time-select:hover {
+        border-color: #2ecc71;
+    }
+    
+    .time-select:focus {
+        outline: none;
+    }
+    
+    .pause-btn, .reset-btn {
+        display: none; /* Hide Pause and Reset buttons initially */
+    }
+    
+    
+    /* #add-timer-btn {
+        padding: 10px 20px;
+
+        background-color: #2ecc71;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        display: block;
+        margin: 20px auto;
+        transition: background-color 0.3s ease;
+
+        i {
+            font-size: 3vh;
+        }
+    } */
+    
+    #add-timer-btn:hover {
+        background-color: #2980b9;
+    }
+
+   
+}
+
+
+.custom-time-input {
+    padding: 10px;
+    font-size: 18px;
+    border: 2px solid #2ecc71;
+    border-radius: 5px;
+    background-color: #ecf0f1;
+    color: #2c3e50;
+    margin-right: 10px;
+    width: 60%;
+  }
+  
+  .set-custom-time-btn {
+    padding: 10px 20px;
+    font-size: 16px;
+    background-color: #3498db;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    display: inline-block;
+    transition: background-color 0.3s ease;
+  }
+  
+  .set-custom-time-btn:hover {
+    background-color: #2980b9;
+  }
+
+  .timer-title {
+    font-size: 5em;
+    font-weight: bold;
+    margin-top: 2vh;
+    margin-bottom: 0;
+  }
+  
+
+
+@media screen and (max-width: 350px) {
+    
+    .timer-display {
+        font-size: 5rem !important;
+
+    }
+
+}
+
+
+/* Media query for light color scheme */
+@media screen and (prefers-color-scheme: light) {
+    
+    nav {
+        .social a {
+            color: black;
+        }
+    }
+
+}
+
+@media screen and (prefers-color-scheme: dark) {
+    
+    nav {
+        .social a {
+            color: white;
+        }
+    }
+}

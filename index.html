@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta name="color-scheme" content="light dark"/>
+
+    <!-- <link rel="shortcut icon" type="image/x-icon" href="img/clock-solid.svg"> -->
+
+
+    <!-- Light Mode Favicon -->
+    <link id="favicon-light" rel="icon" href="img/clock-black.svg" media="(prefers-color-scheme: light)">
+    <!-- Dark Mode Favicon -->
+    <link id="favicon-dark" rel="icon" href="img/clock-solid.svg" media="(prefers-color-scheme: dark)">
+
+
+
+    <!-- menu icon -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+    <link rel="stylesheet" href="index.css">
+
+    <title>Pomodoro</title>
+</head>
+<body>
+
+    <nav>
+
+        <!-- <div class="menu">
+            <i class="fa-solid fa-bars"></i>
+        </div> -->
+
+        <!-- <div class="social">
+            <a href="https://github.com/bramermatt" target="_blank"><i class="fa-brands fa-github"></i></a>
+            <a href="https://www.threads.net/@bramermatt" target="_blank"><i class="fa-brands fa-square-threads"></i></a>
+            <a href="https://www.youtube.com/channel/UC1OsGesye2hEKRl_dSqwhUw" target="_blank"><i class="fa-brands fa-youtube"></i></a>
+        </div> -->
+        
+        <div class="brand">
+            <i class="fa-regular fa-clock"></i>
+            <h1>Pomodoro</h1>
+        </div>
+        
+    </nav>
+
+
+    <main>
+
+        <div id="timers-container">
+            <!-- Existing timers will be inserted here -->
+
+        <button id="add-timer-btn"><i class="fa-solid fa-plus"></i></button>
+          </div>
+         
+
+        <!-- <div class="timer-container">
+
+
+            <div id="timer-display">25:00</div>
+
+            <div class="timer-buttons">
+                <button id="reset-btn"><i class="fa-solid fa-clock-rotate-left"></i></button>
+              <button id="start-btn"><i class="fa-solid fa-play"></i></button>
+              <button id="pause-btn"><i class="fa-solid fa-pause"></i></button>
+
+            </div>
+
+            <select id="time-select" tabindex="-1">
+                <option value="25">25 minutes</option>
+                <option value="15">15 minutes</option>
+                <option value="5">5 minutes</option>
+              </select>
+          </div> -->
+          
+    </main>
+
+    <script src="js/timer.js"></script>
+
+
+    <footer>
+        <div class="footer-content">
+          <p>&copy; 2024 Matt Bramer. All rights reserved.</p>
+          <div class="footer-links">
+            <a href="https://github.com/bramermatt" target="_blank"><i class="fa-brands fa-github"></i></a>
+            <a href="https://www.threads.net/@bramermatt" target="_blank"><i class="fa-brands fa-square-threads"></i></a>
+            <a href="https://www.youtube.com/channel/UC1OsGesye2hEKRl_dSqwhUw" target="_blank"><i class="fa-brands fa-youtube"></i></a>
+          </div>
+        </div>
+      </footer>
+
+      <audio id="notification-sound" src="mp3/boopMix.mp3" preload="auto"></audio>
+
+
+
+      <script src="js/favicon-color.js"></script>
+    
+</body>
+</html>
