@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Multiple Pomodoro Timers</title>
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+    body {
+      margin: 0;
+      font-family: system-ui, sans-serif;
+      background: #1e1e1e;
+      color: #fff;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 2rem;
+    }
+    h1 {
+      text-align: center;
+      margin-bottom: 2rem;
+    }
+    .timer-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 2rem;
+      width: 100%;
+      max-width: 1000px;
+    }
+    .timer-card {
+      background: #2e2e2e;
+      border: 1px solid #444;
+      border-radius: 8px;
+      padding: 1rem;
+      text-align: center;
+      position: relative;
+    }
+    .clock-face {
+      width: 150px;
+      height: 150px;
+      border: 4px solid #888;
+      border-radius: 50%;
+      margin: 0 auto 1rem;
+      position: relative;
+    }
+    .hand {
+      width: 2px;
+      height: 70px;
+      background: #4fd1c5;
+      position: absolute;
+      bottom: 50%;
+      left: 50%;
+      transform-origin: bottom center;
+      transform: rotate(0deg);
+    }
+    .controls {
+      margin-top: 1rem;
+    }
+    button {
+      background: #4fd1c5;
+      border: none;
+      padding: 0.5rem 1rem;
+      color: #000;
+      font-weight: bold;
+      margin: 0.2rem;
+      cursor: pointer;
+      border-radius: 4px;
+      transition: background 0.3s;
+    }
+    button:hover {
+      background: #38b2ac;
+    }
+  </style>
+</head>
+<body>
+  <h1>Multiple Pomodoro Timers</h1>
+  <div class="timer-grid">
+    <!-- Timer 1: 25 minutes -->
+    <div class="timer-card" data-minutes="25">
+      <div class="clock-face">
+        <div class="hand"></div>
+      </div>
+      <div class="controls">
+        <button onclick="startClock(this)">Start</button>
+        <button onclick="resetClock(this)">Reset</button>
+      </div>
+      <div>Timer (25 min)</div>
+    </div>
+    <!-- Timer 2: 10 minutes -->
+    <div class="timer-card" data-minutes="10">
+      <div class="clock-face">
+        <div class="hand"></div>
+      </div>
+      <div class="controls">
+        <button onclick="startClock(this)">Start</button>
+        <button onclick="resetClock(this)">Reset</button>
+      </div>
+      <div>Timer (10 min)</div>
+    </div>
+    <!-- Timer 3: 5 minutes -->
+    <div class="timer-card" data-minutes="5">
+      <div class="clock-face">
+        <div class="hand"></div>
+      </div>
+      <div class="controls">
+        <button onclick="startClock(this)">Start</button>
+        <button onclick="resetClock(this)">Reset</button>
+      </div>
+      <div>Timer (5 min)</div>
+    </div>
+    <!-- Timer 4: 60 minutes -->
+    <div class="timer-card" data-minutes="60">
+      <div class="clock-face">
+        <div class="hand"></div>
+      </div>
+      <div class="controls">
+        <button onclick="startClock(this)">Start</button>
+        <button onclick="resetClock(this)">Reset</button>
+      </div>
+      <div>Timer (60 min)</div>
+    </div>
+  </div>
+
+  <script>
+    const timers = new Map();
+
+    function startClock(button) {
+      const card = button.closest('.timer-card');
+      const hand = card.querySelector('.hand');
+      const minutes = parseInt(card.getAttribute('data-minutes'), 10);
+      const duration = minutes * 60;
+      let startTime = Date.now();
+      let elapsed = 0;
+
+      if (timers.has(card)) return; // prevent multiple starts
+
+      const interval = setInterval(() => {
+        elapsed = Math.floor((Date.now() - startTime) / 1000);
+        const angle = (elapsed / duration) * 360;
+        hand.style.transform = `rotate(${angle}deg)`;
+        if (elapsed >= duration) {
+          clearInterval(interval);
+          timers.delete(card);
+          alert(`${minutes}-minute timer done!`);
+        }
+      }, 1000);
+
+      timers.set(card, interval);
+    }
+
+    function resetClock(button) {
+      const card = button.closest('.timer-card');
+      const hand = card.querySelector('.hand');
+      if (timers.has(card)) {
+        clearInterval(timers.get(card));
+        timers.delete(card);
+      }
+      hand.style.transform = 'rotate(0deg)';
+    }
+  </script>
+</body>
+</html>
