@@ -69,7 +69,7 @@
 
 
   <!-- Main Content -->
-<main class="flex-1 max-w-screen-xl mx-auto px-4 mt-10 mb-44 md:mb-24">
+<main class="flex-1 max-w-screen-xl mx-auto md:mx-auto ml-0 mr-0 px-4 mt-10 mb-44 md:mb-24">
 
   <section id="timers" class="tab-section">
     <h2 class="text-xl font-semibold mb-4 text-center">Timers</h2>
@@ -110,9 +110,18 @@
     </button>
   </div>
 
-  <div id="world-clock-list" class="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-3 gap-4">
-    <!-- Dynamic city cards will be injected here -->
-  </div>
+<div class="w-full max-w-5xl mx-auto mt-6 p-4 bg-white dark:bg-zinc-900 rounded-xl shadow-md">
+<!-- <script src="https://d3js.org/d3.v7.min.js"></script>
+<script src="https://unpkg.com/topojson-client@3"></script>
+
+<div id="world-map" class="my-8"></div>
+<div id="tooltip" style="position:absolute;display:none;pointer-events:none;background:#fff;padding:8px 12px;border-radius:6px;box-shadow:0 2px 8px #0002;font-size:1rem;z-index:1000"></div>
+</div>
+</div> -->
+
+
+<div id="world-clock-list" class="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 gap-4 mt-6"></div>
+
 </section>
 
 <!-- <section id="playback-timer" class=" px-4 py-8 max-w-3xl mx-auto"> -->
@@ -208,13 +217,10 @@
 
 
   <section id="info" class="tab-section hidden">
-  <div class="max-w-3xl mx-auto mt-12 px-4 text-center">
-    <h2 class="text-xl font-semibold text-zinc-800 dark:text-zinc-100">About Time Studio</h2>
-    <p class="text-center text-sm text-zinc-500 dark:text-zinc-400 mb-4 max-w-xs mx-auto">
-      Time Studio is your space for mindful productivity—track time, reflect, and flow with rhythm.
-    </p>
+  <h2 class="text-xl font-semibold mb-4 text-center">About Time Studio</h2>
+    <p class="text-center text-sm text-zinc-500 dark:text-zinc-400 mb-4 max-w-xs mx-auto">Time Studio is your space for mindful productivity—track time, reflect, and flow with rhythm.</p>
 
-    <div class="mt-6 text-sm space-y-2 text-zinc-500 dark:text-zinc-400">
+    <div class="mt-6 text-center text-sm space-y-2 text-zinc-500 dark:text-zinc-400">
       <p>Created by <a href="https://www.mattbramer.com" target="_blank" class="underline hover:text-blue-500">Matt Bramer</a></p>
       <p>Code on <a href="https://github.com/bramermatt/pomodoro" target="_blank" class="underline hover:text-blue-500">GitHub</a></p>
     </div>
@@ -232,7 +238,7 @@
     </p>
 
     <!-- Parent container with max width 1000px and center alignment -->
-    <div class="w-full md:w-[1000px] mx-auto aspect-video rounded-xl overflow-hidden shadow-lg border border-zinc-200 dark:border-zinc-700">
+    <div class="w-full md:w-[1000px] ml-0 mr-0 aspect-video rounded-xl overflow-hidden shadow-lg border border-zinc-200 dark:border-zinc-700">
       <!-- Video iframe stretching to full container width and height -->
       <iframe
         class="w-full h-full"
