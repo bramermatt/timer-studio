@@ -1,45 +1,287 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class=="dark">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <meta name="color-scheme" content="light dark"/>
+  <meta name="color-scheme" content="light dark"/>
+  <link rel="stylesheet" href="style.css">
+  <title>Time Studio</title>
 
-    <!-- Light Mode Favicon -->
-    <link id="favicon-light" rel="icon" href="img/clock-black.svg" media="(prefers-color-scheme: light)">
-    <!-- Dark Mode Favicon -->
-    <link id="favicon-dark" rel="icon" href="img/clock-solid.svg" media="(prefers-color-scheme: dark)">
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
 
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+  <!-- Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
 
-    <link rel="stylesheet" href="index.css">
-
-    <title>Pomodoro</title>
+  <!-- Favicons -->
+  <link id="favicon-light" rel="icon" href="img/clock-black.svg" media="(prefers-color-scheme: light)">
+  <link id="favicon-dark" rel="icon" href="img/clock-solid.svg" media="(prefers-color-scheme: dark)">
 </head>
-<body>
+
+<body class="bg-white dark:bg-zinc-900 text-zinc-900 dark:text-zinc-100 font-sans flex flex-col min-h-screen">
+
+  <!-- Header / Desktop Nav -->
+<header class="hidden md:flex justify-between items-center border-b border-zinc-300 dark:border-zinc-700 p-4 max-w-5xl mx-auto w-full">
+  <h1 class="text-2xl font-semibold tracking-tight">Time Studio</h1>
+  <nav class="flex gap-6 text-sm">
+      <a href="#" data-tab="timers" class="tab-btn hover:underline text-zinc-900 dark:text-white font-semibold">Timers</a>
+      <a href="#" data-tab="clock" class="tab-btn hover:underline">World Clock</a>
+      <a href="#" data-tab="pomodoro" class="tab-btn hover:underline">Pomodoro</a>
+      <a href="#" data-tab="playback-timer" class="tab-btn hover:underline">Playback</a> <!-- New tab here -->
+      <a href="#" data-tab="lofi" class="tab-btn hover:underline">LoFi</a>
+  </nav>
+</header>
 
 
-    <main>
+  <!-- Mobile Bottom Nav -->
+<!-- Mobile Bottom Nav with 6 tabs -->
+<nav class="fixed bottom-5 left-1/2 -translate-x-1/2 w-[90%] bg-white dark:bg-zinc-800 border border-zinc-300 dark:border-zinc-700 shadow-md rounded-xl flex justify-around items-center py-3 px-2 text-sm md:hidden z-50">
+    <a href="#" data-tab="timers" class="tab-btn flex flex-col items-center text-zinc-900 dark:text-white font-semibold gap-1">
+        <i class="fa-solid fa-stopwatch text-lg"></i>
+        Timers
+    </a>
+    <a href="#" data-tab="clock" class="tab-btn flex flex-col items-center text-zinc-500 hover:text-zinc-900 dark:hover:text-white gap-1">
+        <i class="fa-regular fa-clock text-lg"></i>
+        Clock
+    </a>
+    <a href="#" data-tab="pomodoro" class="tab-btn flex flex-col items-center text-zinc-500 hover:text-zinc-900 dark:hover:text-white gap-1">
+        <i class="fa-solid fa-seedling text-lg"></i>
+        Pomo
+    </a>
+    <a href="#" data-tab="playback-timer" class="tab-btn flex flex-col items-center text-zinc-500 hover:text-zinc-900 dark:hover:text-white gap-1"> <!-- New tab here -->
+        <i class="fa-solid fa-play-circle text-lg"></i>
+        Playback
+    </a>
+    <a href="#" data-tab="lofi" class="tab-btn flex flex-col items-center text-zinc-500 hover:text-zinc-900 dark:hover:text-white gap-1">
+        <i class="fa-solid fa-music text-lg"></i>
+        LoFi
+    </a>
 
-        <div id="timers-container">
+  <a href="#" data-tab="info" class="tab-btn flex flex-col items-center text-zinc-500 hover:text-zinc-900 dark:hover:text-white gap-1">
+    <i class="fa-solid fa-circle-info text-lg"></i>
+    Info
+  </a>
+</nav>
 
-        <button id="add-timer-btn"><i class="fa-solid fa-plus"></i></button>
 
+
+
+
+  <!-- Main Content -->
+<main class="flex-1 max-w-screen-xl mx-auto px-4 mt-10 mb-44 md:mb-24">
+
+  <section id="timers" class="tab-section">
+    <h2 class="text-xl font-semibold mb-4 text-center">Timers</h2>
+    <p class="text-center text-sm text-zinc-500 dark:text-zinc-400 mb-4 max-w-xs mx-auto">Set custom or preset timers (like 5, 25, or 60 minutes) to help you stay focused, rest, or get things done without thinking twice. Simple, snappy, and ready when you are.</p>
+    <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4 mb-8">
+      <button class="bg-blue-500 text-white px-2 py-2 rounded-xl shadow-md hover:bg-blue-600" data-time="60">1 Hour</button>
+      <button class="bg-blue-500 text-white py-3 rounded-xl shadow-md hover:bg-blue-600" data-time="120">2 Hours</button>
+      <button class="bg-blue-500 text-white py-3 rounded-xl shadow-md hover:bg-blue-600" data-time="25">25 Min</button>
+      <button class="bg-blue-500 text-white py-3 rounded-xl shadow-md hover:bg-blue-600" data-time="30">30 Min</button>
+      <button class="bg-blue-500 text-white py-3 rounded-xl shadow-md hover:bg-blue-600" data-time="5">5 Min</button>
+      <button class="bg-blue-500 text-white py-3 rounded-xl shadow-md hover:bg-blue-600" data-time="1">1 Min</button>
+    </div>
+    <div class="mb-6 text-center">
+      <label class="block text-lg font-medium text-zinc-700 dark:text-zinc-300">Custom Timer</label>
+      <div class="flex justify-center gap-4 mt-2">
+      <input type="number" id="custom-hours" class="w-20 p-2 border border-zinc-300 rounded-lg dark:bg-zinc-800 dark:border-zinc-600 dark:text-white" min="0" placeholder="Hour">
+      <input type="number" id="custom-minutes" class="w-20 p-2 border border-zinc-300 rounded-lg dark:bg-zinc-800 dark:border-zinc-600 dark:text-white" min="0" max="59" placeholder="Min">
+      <button id="start-custom-timer" class="bg-green-600 text-white px-4 py-2 rounded-lg hover:bg-green-700">Start</button>
+      </div>
+    </div>
+    <div class="bg-zinc-100 dark:bg-zinc-800 rounded-xl p-6 text-center shadow-inner">
+      <p id="active-timer-label" class="text-lg font-semibold text-zinc-700 dark:text-zinc-300">No Timer Active</p>
+      <p id="active-timer-time" class="text-4xl font-bold text-indigo-600 mt-2">00:00</p>
+      <div class="mt-4 flex justify-center gap-4">
+        <button id="pause-timer" class="hidden px-4 py-2 bg-yellow-500 text-white rounded-lg hover:bg-yellow-600">Pause</button>
+        <button id="reset-timer" class="hidden px-4 py-2 bg-red-600 text-white rounded-lg hover:bg-red-700">Reset</button>
+      </div>
+    </div>
+  </section>
+
+<section id="clock" class="tab-section hidden">
+  <h2 class="text-xl font-semibold mb-4 text-center">World Clock</h2>
+    <p class="text-center text-sm text-zinc-500 dark:text-zinc-400 mb-4 max-w-xs mx-auto">See current times across the globe with a clean interactive map and timezone list. Whether you're coordinating across continents or just curious, this clock’s got you covered.</p>
+  <!-- Time Format Toggle -->
+  <div class="text-center mb-4">
+    <button id="toggle-time-format" class="px-4 py-2 bg-blue-500 text-white rounded-md hover:bg-blue-600">
+      12/hr
+    </button>
+  </div>
+
+  <div id="world-clock-list" class="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+    <!-- Dynamic city cards will be injected here -->
+  </div>
+</section>
+
+<!-- <section id="playback-timer" class=" px-4 py-8 max-w-3xl mx-auto"> -->
+<section id="playback-timer" class="tab-section hidden">
+    <h2 class="text-xl font-semibold mb-4 text-center">Playback Timer</h2>
+        <p class="text-center text-sm text-zinc-500 dark:text-zinc-400 mb-4 max-w-xs mx-auto">Input how much content is left and your playback speed—this tool tells you how much time you're saving and when you'll be done. Perfect for lectures, podcasts, or binge sessions.</p>
+    <div class="space-y-6">
+        <!-- Time Remaining Inputs (Hours and Minutes) -->
+        <div class="flex space-x-4">
+            <div class="w-1/2">
+                <label for="remaining-hours" class="block text-lg font-medium text-zinc-700 dark:text-zinc-300">Time Remaining (Hours)</label>
+                <input type="number" id="remaining-hours" class="w-full p-3 mt-2 border border-zinc-300 rounded-lg dark:bg-zinc-800 dark:border-zinc-600 dark:text-white" placeholder="e.g., 1" min="0" />
+            </div>
+            <div class="w-1/2">
+                <label for="remaining-minutes" class="block text-lg font-medium text-zinc-700 dark:text-zinc-300">Time Remaining (Minutes)</label>
+                <input type="number" id="remaining-minutes" class="w-full p-3 mt-2 border border-zinc-300 rounded-lg dark:bg-zinc-800 dark:border-zinc-600 dark:text-white" placeholder="e.g., 30" min="0" />
+            </div>
         </div>
-         
 
-          
-    </main>
+        <!-- Playback Speed Input -->
+        <div>
+            <label for="speed" class="block text-lg font-medium text-zinc-700 dark:text-zinc-300">Playback Speed</label>
+            <input type="text" id="speed" class="w-full p-3 mt-2 border border-zinc-300 rounded-lg dark:bg-zinc-800 dark:border-zinc-600 dark:text-white" step="0.01" placeholder="e.g., 2.0" />
+        </div>
 
-    <footer>
-        <p>Created by <a href="https://www.mattbramer.com" target="_blank">Matt Bramer</a></p>
-        <p>Code on <a href="https://github.com/bramermatt/pomodoro" target="_blank">GitHub</a></p>
-    </footer>
+        <!-- Result Output -->
+        <div class="mt-4">
+            <button id="calculate-btn" class="w-full py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700">Calculate</button>
+        </div>
+        
+        <!-- Display Results -->
+        <div id="result" class="mt-8 hidden">
+            <p class="text-xl font-semibold text-zinc-700 dark:text-zinc-300">Adjusted Time: <span id="adjusted-time"></span></p>
+            <p class="text-xl font-semibold text-zinc-700 dark:text-zinc-300">Real World Time: <span id="real-world-time"></span></p>
+        </div>
+    </div>
+</section>
 
 
-    <audio id="notification-sound" src="mp3/boopMix.mp3" preload="auto"></audio>    
-    <script src="js/timer.js"></script>
+
+
+</section>
+
+
+<section id="pomodoro" class="tab-section hidden">
+  <h2 class="text-xl font-semibold mb-4 text-center">Pomodoro Timer</h2>
+  <p class="text-center text-sm text-zinc-500 dark:text-zinc-400 mb-4 max-w-xs mx-auto">Use the Pomodoro technique to stay productive: short focus sessions with built-in breaks. Choose your duration, track your progress live</p>
+  <!-- Timer Buttons -->
+  <div class="space-y-4">
+    <button class="pomodoro-btn w-full py-2 px-4 rounded-md bg-blue-600 text-white hover:bg-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-500" data-time="25">Start 25-Minute Focus</button>
+    <button class="pomodoro-btn w-full py-2 px-4 rounded-md bg-green-600 text-white hover:bg-green-500 focus:outline-none focus:ring-2 focus:ring-green-500" data-time="15">Start 15-Minute Focus</button>
+  </div>
+
+  <!-- Music Toggle -->
+  <!-- <div class="flex items-center space-x-4">
+    <label for="lofi-music" class="text-lg">Play LoFi Music</label>
+    <input type="checkbox" id="lofi-music" class="h-5 w-5 text-blue-500 focus:ring-2 focus:ring-blue-500" />
+  </div> -->
+
+<!-- Active Timer Display -->
+<div id="active-pomo-timer" class="mt-8 hidden p-6 bg-gradient-to-br from-zinc-900 via-gray-800 to-zinc-900 text-white rounded-2xl shadow-2xl border border-zinc-700">
+  <h3 class="text-2xl font-bold text-yellow-400 tracking-wide mb-4 flex items-center gap-3">
+    <i class="fas fa-hourglass-half text-yellow-400"></i>
+    Active Pomo
+    <span id="active-pomo-timer-label" class="ml-2 text-white font-semibold">None</span>
+  </h3>
+  
+  <div class="flex items-center justify-between text-5xl font-mono font-bold text-emerald-400 animate-pulse">
+    <span id="active-pomo-timer-time">00:00</span>
+    <div class="text-right text-base text-zinc-300 font-normal ml-4">
+      <p class="text-sm uppercase tracking-widest text-zinc-400">End Time</p>
+      <span id="active-pomo-timer-end-time" class="text-lg font-semibold text-white">--:--</span>
+    </div>
+  </div>
+
+  <div class="flex justify-center gap-6 mt-6">
+    <button id="pause-pomo-btn" class="px-6 py-2 rounded-xl bg-yellow-500 hover:bg-yellow-400 text-black font-semibold shadow-lg transition-all duration-200 flex items-center gap-2">
+      <i class="fas fa-pause-circle"></i> Pause
+    </button>
+    <button id="reset-pomo-btn" class="px-6 py-2 rounded-xl bg-red-600 hover:bg-red-500 text-white font-semibold shadow-lg transition-all duration-200 flex items-center gap-2">
+      <i class="fas fa-rotate-left"></i> Reset
+    </button>
+  </div>
+</div>
+
+
+</section>
+
+
+
+
+
+
+
+  <section id="info" class="tab-section hidden">
+  <div class="max-w-3xl mx-auto mt-12 px-4 text-center">
+    <h2 class="text-xl font-semibold text-zinc-800 dark:text-zinc-100">About Time Studio</h2>
+    <p class="text-center text-sm text-zinc-500 dark:text-zinc-400 mb-4 max-w-xs mx-auto">
+      Time Studio is your space for mindful productivity—track time, reflect, and flow with rhythm.
+    </p>
+
+    <div class="mt-6 text-sm space-y-2 text-zinc-500 dark:text-zinc-400">
+      <p>Created by <a href="https://www.mattbramer.com" target="_blank" class="underline hover:text-blue-500">Matt Bramer</a></p>
+      <p>Code on <a href="https://github.com/bramermatt/pomodoro" target="_blank" class="underline hover:text-blue-500">GitHub</a></p>
+    </div>
+  </div>
+</section>
+
+
+<section id="lofi" class="tab-section hidden">
+  <section id="lofi-player">
+    <h2 class="text-xl font-semibold mb-4 text-center">
+      LoFi Vibes
+    </h2>
+    <p class="text-center text-sm text-zinc-500 dark:text-zinc-400 mb-4 max-w-xs mx-auto">
+      Background music to help you chill, focus, or flow.
+    </p>
+
+    <!-- Parent container with max width 1000px and center alignment -->
+    <div class="w-full md:w-[1000px] mx-auto aspect-video rounded-xl overflow-hidden shadow-lg border border-zinc-200 dark:border-zinc-700">
+      <!-- Video iframe stretching to full container width and height -->
+      <iframe
+        class="w-full h-full"
+        src="https://www.youtube.com/embed/jfKfPfyJRdk?autoplay=1&mute=1&controls=1&loop=1"
+        title="lofi hip hop radio - beats to relax/study to"
+        frameborder="0"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+        allowfullscreen
+      ></iframe>
+    </div>
+  </section>
+<!-- </section> -->
+
+
+    <!-- <section id="lofi-controls" class="mt-6 text-center">
+      <button id="play-lofi-btn" class="px-4 py-2 bg-blue-500 text-white rounded-md hover:bg-blue-600">
+        <i class="fa-solid fa-play mr-2"></i>Play LoFi
+      </button>
+      <button id="stop-lofi-btn" class="ml-4 px-4 py-2 bg-red-500 text-white rounded-md hover:bg-red-600">
+        <i class="fa-solid fa-stop mr-2"></i>Stop LoFi
+      </button> -->
+
+
+
+
+
+
+  </main>
+
+
+
+
+
+
+  <!-- Footer -->
+  <footer class="hidden md:block text-center text-xs text-zinc-500 dark:text-zinc-400 py-4 border-t border-zinc-200 dark:border-zinc-800">
+    <p>Created by <a href="https://www.mattbramer.com" target="_blank" class="underline hover:text-blue-500">Matt Bramer</a></p>
+    <p>Code on <a href="https://github.com/bramermatt/pomodoro" target="_blank" class="underline hover:text-blue-500">GitHub</a></p>
+  </footer>
+
+
+  <audio id="notification-sound" src="mp3/boopMix.mp3" preload="auto"></audio>
+  <script src="js/timer.js"></script>
+  <script src="js/tabs.js"></script>
+  <script src="js/worldClock.js"></script>
+  <script src="js/playbackTimer.js"></script>
+  <script src="js/pomodoro.js"></script>
+  <script src="js/lofi.js"></script>
+  
 
 </body>
 </html>

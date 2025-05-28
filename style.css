@@ -1,0 +1,40 @@
+  /* Pulsing .active-tab class for both modes */
+  @keyframes pulse-shadow-light {
+    0%, 100% {
+      text-shadow: 0 0 8px rgba(255, 255, 255, 0.6);
+    }
+    50% {
+      text-shadow: 0 0 16px rgba(255, 255, 255, 1);
+    }
+  }
+
+  @keyframes pulse-shadow-dark {
+    0%, 100% {
+      text-shadow: 0 0 8px rgba(251, 191, 36, 0.6); /* amber */
+    }
+    50% {
+      text-shadow: 0 0 16px rgba(251, 191, 36, 1);
+    }
+  }
+
+  @media screen and (prefers-color-scheme: dark) {
+  .active-tab {
+    color: white;
+    font-weight: 600;
+    text-shadow: 0 0 8px rgba(255, 255, 255, 0.6);
+    animation: pulse-shadow-light 1.2s infinite;
+  }
+    
+  }
+
+ .active-tab {
+    color: #3224fb;
+    text-shadow: 0 0 8px rgba(36, 111, 251, 0.6);
+    animation: pulse-shadow-dark 1.2s infinite;
+  }
+
+  p {
+
+  }
+
+ 

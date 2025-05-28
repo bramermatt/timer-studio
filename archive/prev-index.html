@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta name="color-scheme" content="light dark"/>
+
+    <!-- Light Mode Favicon -->
+    <link id="favicon-light" rel="icon" href="img/clock-black.svg" media="(prefers-color-scheme: light)">
+    <!-- Dark Mode Favicon -->
+    <link id="favicon-dark" rel="icon" href="img/clock-solid.svg" media="(prefers-color-scheme: dark)">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+    <link rel="stylesheet" href="index.css">
+
+    <title>Pomodoro</title>
+</head>
+<body>
+
+
+    <main>
+
+        <div id="timers-container">
+
+        <button id="add-timer-btn"><i class="fa-solid fa-plus"></i></button>
+
+        </div>
+         
+
+          
+    </main>
+
+    <footer>
+        <p>Created by <a href="https://www.mattbramer.com" target="_blank">Matt Bramer</a></p>
+        <p>Code on <a href="https://github.com/bramermatt/pomodoro" target="_blank">GitHub</a></p>
+    </footer>
+
+
+    <audio id="notification-sound" src="mp3/boopMix.mp3" preload="auto"></audio>    
+    <script src="js/timer.js"></script>
+
+</body>
+</html>
