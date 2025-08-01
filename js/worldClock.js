@@ -58,7 +58,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
     cities.forEach((city, index) => {
       const date = new Date();
-      const options = { timeZone: city.timeZone, hour: '2-digit', minute: '2-digit', second: '2-digit' };
+      const options = { timeZone: city.timeZone, hour: '2-digit', minute: '2-digit' };
       options.hour12 = !is24HourFormat;
 
       const timeString = date.toLocaleTimeString([], options);

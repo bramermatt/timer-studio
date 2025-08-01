@@ -26,7 +26,7 @@
   <h1 class="text-2xl font-semibold tracking-tight">Time Studio</h1>
   <nav class="flex gap-6 text-sm">
       <a href="#" data-tab="timers" class="tab-btn hover:underline text-zinc-900 dark:text-white font-semibold">Timers</a>
-      <a href="#" data-tab="clock" class="tab-btn hover:underline">World Clock</a>
+      <!-- <a href="#" data-tab="clock" class="tab-btn hover:underline">World Clock</a> -->
       <a href="#" data-tab="pomodoro" class="tab-btn hover:underline">Pomodoro</a>
       <a href="#" data-tab="playback-timer" class="tab-btn hover:underline">Playback</a> <!-- New tab here -->
       <a href="#" data-tab="lofi" class="tab-btn hover:underline">LoFi</a>
@@ -41,10 +41,10 @@
         <i class="fa-solid fa-stopwatch text-lg"></i>
         Timers
     </a>
-    <a href="#" data-tab="clock" class="tab-btn flex flex-col items-center text-zinc-500 hover:text-zinc-900 dark:hover:text-white gap-1">
+    <!-- <a href="#" data-tab="clock" class="tab-btn flex flex-col items-center text-zinc-500 hover:text-zinc-900 dark:hover:text-white gap-1">
         <i class="fa-regular fa-clock text-lg"></i>
         Clock
-    </a>
+    </a> -->
     <a href="#" data-tab="pomodoro" class="tab-btn flex flex-col items-center text-zinc-500 hover:text-zinc-900 dark:hover:text-white gap-1">
         <i class="fa-solid fa-seedling text-lg"></i>
         Pomo
@@ -132,11 +132,11 @@
         <!-- Time Remaining Inputs (Hours and Minutes) -->
         <div class="flex space-x-4">
             <div class="w-1/2">
-                <label for="remaining-hours" class="block text-lg font-medium text-zinc-700 dark:text-zinc-300">Time Remaining (Hours)</label>
+                <label for="remaining-hours" class="block text-lg font-medium text-zinc-700 dark:text-zinc-300">Hours</label>
                 <input type="number" id="remaining-hours" class="w-full p-3 mt-2 border border-zinc-300 rounded-lg dark:bg-zinc-800 dark:border-zinc-600 dark:text-white" placeholder="e.g., 1" min="0" />
             </div>
             <div class="w-1/2">
-                <label for="remaining-minutes" class="block text-lg font-medium text-zinc-700 dark:text-zinc-300">Time Remaining (Minutes)</label>
+                <label for="remaining-minutes" class="block text-lg font-medium text-zinc-700 dark:text-zinc-300">Minutes</label>
                 <input type="number" id="remaining-minutes" class="w-full p-3 mt-2 border border-zinc-300 rounded-lg dark:bg-zinc-800 dark:border-zinc-600 dark:text-white" placeholder="e.g., 30" min="0" />
             </div>
         </div>
@@ -144,7 +144,7 @@
         <!-- Playback Speed Input -->
         <div>
             <label for="speed" class="block text-lg font-medium text-zinc-700 dark:text-zinc-300">Playback Speed</label>
-            <input type="text" id="speed" class="w-full p-3 mt-2 border border-zinc-300 rounded-lg dark:bg-zinc-800 dark:border-zinc-600 dark:text-white" step="0.01" placeholder="e.g., 2.0" />
+            <input type="number" id="speed" class="w-full p-3 mt-2 border border-zinc-300 rounded-lg dark:bg-zinc-800 dark:border-zinc-600 dark:text-white" step="0.5" min="0.5" placeholder="e.g., 2.0" inputmode="decimal" />
         </div>
 
         <!-- Result Output -->
@@ -223,6 +223,13 @@
     <div class="mt-6 text-center text-sm space-y-2 text-zinc-500 dark:text-zinc-400">
       <p>Created by <a href="https://www.mattbramer.com" target="_blank" class="underline hover:text-blue-500">Matt Bramer</a></p>
       <p>Code on <a href="https://github.com/bramermatt/pomodoro" target="_blank" class="underline hover:text-blue-500">GitHub</a></p>
+      <br><br>
+
+      <p><a href="https://ko-fi.com/mattbramer" target="_blank" rel="noopener">Ko-fi <i class="fa-solid fa-arrow-up-right-from-square"></i></a></p>
+      <p><a href="https://www.patreon.com/MatthewBramer" target="_blank" rel="noopener"><i class="fa-brands fa-patreon"></i> Patreon <i class="fa-solid fa-arrow-up-right-from-square"></i></a></p>
+      <p><a href="https://matthewbramer.substack.com/subscribe" target="_blank">Newsletter <i class="fa-solid fa-arrow-up-right-from-square"></i></a></p>
+      
+
     </div>
   </div>
 </section>
@@ -274,9 +281,14 @@
 
 
   <!-- Footer -->
-  <footer class="hidden md:block text-center text-xs text-zinc-500 dark:text-zinc-400 py-4 border-t border-zinc-200 dark:border-zinc-800">
+  <footer class="hidden md:flex flex-row justify-center items-center gap-6 text-xs text-zinc-500 dark:text-zinc-400 py-4 border-t border-zinc-200 dark:border-zinc-800 text-center">
     <p>Created by <a href="https://www.mattbramer.com" target="_blank" class="underline hover:text-blue-500">Matt Bramer</a></p>
     <p>Code on <a href="https://github.com/bramermatt/pomodoro" target="_blank" class="underline hover:text-blue-500">GitHub</a></p>
+
+    <p><a href="https://ko-fi.com/mattbramer" target="_blank" rel="noopener">Ko-fi <i class="fa-solid fa-arrow-up-right-from-square"></i></a></p>
+      <p><a href="https://www.patreon.com/MatthewBramer" target="_blank" rel="noopener"><i class="fa-brands fa-patreon"></i> Patreon <i class="fa-solid fa-arrow-up-right-from-square"></i></a></p>
+      <p><a href="https://matthewbramer.substack.com/subscribe" target="_blank">Newsletter <i class="fa-solid fa-arrow-up-right-from-square"></i></a></p>
+
   </footer>
 
 
